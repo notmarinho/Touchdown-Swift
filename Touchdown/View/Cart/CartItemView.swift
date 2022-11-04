@@ -11,16 +11,14 @@ struct CartItemView: View {
     var cartItem: CartItem
     
     var body: some View {
-        HStack() {
+        HStack(spacing: 0) {
             // PRODUCT IMAGE
             Image(cartItem.product.image)
                 .resizable()
                 .scaledToFit()
-                .frame(maxWidth: 100)
                 .background(.white)
                 .cornerRadius(12)
-                .padding(.vertical)
-                .padding(.leading)
+                .padding(10)
 
             // PRODUCT INFO
             VStack(alignment: .leading) {
@@ -66,16 +64,15 @@ struct CartItemView: View {
             .padding()
             
         }
+        .frame(height: 100)
         .background(colorGray)
-        .cornerRadius(12)
-        .shadow(radius: 4)
+        .cornerRadius(10)
     }
 }
 
 struct CartItemView_Previews: PreviewProvider {
     static var previews: some View {
         CartItemView(cartItem: sampleCart[0])
-            .previewLayout(.fixed(width: 200, height: 60))
-            .padding()
+            .previewLayout(.fixed(width: 200, height: 100))
     }
 }
